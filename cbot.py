@@ -383,6 +383,8 @@ async def on_message(message):
                 await message.channel.send(content=None, embed = embed)
                     
                 
+            elif message.content.split()[1] == "test":
+                await message.channel.send("This works")
             
                 
             
