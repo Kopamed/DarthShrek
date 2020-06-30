@@ -52,7 +52,7 @@ random_words = dump_file("randomWords.txt", random_words)
 
 
 
-TOKEN = 'NzIwNzIxODU2MTY0MDAzOTAy.XukkLQ.5DBEYqh92KowtOK1PvV7_gMyU1Y'
+TOKEN = 'NzIwNzIxODU2MTY0MDAzOTAy.Xvs2eQ.Fb_SI2OXm_2HGkIxyDOZUTWo0rs'
 
 client = discord.Client()
 
