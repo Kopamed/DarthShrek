@@ -58,7 +58,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game(name="your mum || k, help"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="your mum || k, help"))
     
     print(f'{client.user} has connected to Discord!')
 
