@@ -93,7 +93,7 @@ async def on_member_join(member):
                 
     embed.set_image(url=f"attachment://{filename}")
                 
-    await channel.send(content = "<@!718110543977775125>", file=file, embed=embed)
+    await channel.send(content = "<@!707443953028431904>", file=file, embed=embed)
                 
    
 @client.event
