@@ -3,6 +3,53 @@ import random
 
 import discord
 
+import gspread, string, termcolor, random, json, time
+from termcolor import colored, cprint
+from oauth2client.service_account import ServiceAccountCredentials
+
+
+        
+
+class Database:
+    
+    def __init__(self, url, name, worksheet_name):
+        self.url = url
+        self.name = name
+        self.worksheet_name = worksheet_name
+        
+        self.gc = gspread.service_account(filename="client_secret.json")
+        self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+    
+    
+
+    def load_json(self,file_name):
+        
+        with open(file_name, "r") as write_file:
+            data = write_file.read()
+            data = json.loads(data)
+            
+        return data
+
+
+
+    def dump_json(self,file_name, data):
+        
+        with open(file_name, "w") as write_file:
+            json.dump(data, write_file)
+
+
+
+    def push(self, arr):
+        
+        y = len(worksheet.col_values(1))+1
+        for i in range(len(arr)):
+            worksheet.update_cell(y, i+1, arr[i])
+        
+        
+        
+    
+
+
 
 def dump_file(file_name,arr):
     f=open(file_name, "r")
@@ -55,6 +102,9 @@ random_words = dump_file("randomWords.txt", random_words)
 TOKEN = 'NzIwNzIxODU2MTY0MDAzOTAy.XvukOQ.jsrisJXGGmoaDmCl7DUAFfBZS8k'
 
 client = discord.Client()
+database = Database("https://docs.google.com/spreadsheets/d/1RKOzsosgbyMX8Cgk6O59xs5y5Ki2LZAr3HL6YsYoZ3I/edit#gid=0", "messages", "Sheet1")
+
+
 
 @client.event
 async def on_ready():
@@ -139,7 +189,7 @@ async def on_message(message):
     print(f"{current_time} - {message.channel} - {message.author} - {message.content}")
     
     message_history.append({"ftime": time.time(),"time": str(current_time), "guild": str(message.guild), "channel": str(message.channel), "author": str(message.author), "content": str(message.content)})
-    
+    database.push([time.time(), str(current_time), str(message.guild), str(message.channel), str(message.author), str(message.content)])
     dump_json("messages.json", message_history)
     dump_json("userInfo.json", user_info)
     
