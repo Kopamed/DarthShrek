@@ -41,9 +41,9 @@ class Database:
 
     def push(self, arr):
         
-        y = len(worksheet.col_values(1))+1
+        y = len(self.sh.col_values(1))+1
         for i in range(len(arr)):
-            worksheet.update_cell(y, i+1, arr[i])
+            self.sh.update_cell(y, i+1, arr[i])
         
         
         
@@ -102,8 +102,9 @@ random_words = dump_file("randomWords.txt", random_words)
 TOKEN = 'NzIwNzIxODU2MTY0MDAzOTAy.XvukOQ.jsrisJXGGmoaDmCl7DUAFfBZS8k'
 
 client = discord.Client()
+print("LOading Database...")
 database = Database("https://docs.google.com/spreadsheets/d/1RKOzsosgbyMX8Cgk6O59xs5y5Ki2LZAr3HL6YsYoZ3I/edit#gid=0", "messages", "Sheet1")
-
+print("done")
 
 
 @client.event
@@ -189,7 +190,14 @@ async def on_message(message):
     print(f"{current_time} - {message.channel} - {message.author} - {message.content}")
     
     message_history.append({"ftime": time.time(),"time": str(current_time), "guild": str(message.guild), "channel": str(message.channel), "author": str(message.author), "content": str(message.content)})
-    database.push([time.time(), str(current_time), str(message.guild), str(message.channel), str(message.author), str(message.content)])
+    
+
+    strings = time.strftime("%d,%m, %Y")
+    t = strings.split(',')
+    numbers = [ int(x) for x in t ]
+    now="/".join(str(i) for i in numbers)
+    database.push([now, time.time(), str(current_time), str(message.guild), str(message.channel), str(message.author), str(message.content)])
+    
     dump_json("messages.json", message_history)
     dump_json("userInfo.json", user_info)
     
