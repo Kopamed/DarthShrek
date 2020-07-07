@@ -15,18 +15,20 @@ class Database:
         self.url = url
         self.name = name
         self.worksheet_name = worksheet_name
+        self.count = 0
+        self.n=3
         
         self.gc = gspread.service_account(filename="client_secret.json")
         self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
         
-        self.gc1 = gspread.service_account(filename="client_secret2.json")
+        self.gc1 = gspread.service_account(filename="client_secret1.json")
         self.sh1 = self.gc1.open_by_url(self.url).worksheet(self.worksheet_name)
     
-        #self.gc = gspread.service_account(filename="client_secret.json")
-        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        self.gc2 = gspread.service_account(filename="client_secret2.json")
+        self.sh2 = self.gc2.open_by_url(self.url).worksheet(self.worksheet_name)
         
-        #self.gc = gspread.service_account(filename="client_secret.json")
-        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        self.gc3 = gspread.service_account(filename="client_secret3.json")
+        self.sh3 = self.gc3.open_by_url(self.url).worksheet(self.worksheet_name)
         
         #self.gc = gspread.service_account(filename="client_secret.json")
         #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
@@ -74,11 +76,23 @@ class Database:
         y = len(self.sh.col_values(1))+1
         for i in range(len(arr)):
             
-            r = random.randint(1,100)
-            if r%2==0:
+            if self.count == 0:
                 self.sh.update_cell(y, i+1, arr[i])
-            else:
+            
+            elif self.count == 1:
                 self.sh1.update_cell(y, i+1, arr[i])
+                
+            elif self.count == 2:
+                self.sh2.update_cell(y, i+1, arr[i])    
+                
+            elif self.count == 3:
+                self.sh3.update_cell(y, i+1, arr[i])
+                
+                
+        if self.count == self.n:
+            self.count = 0
+        else:
+            self.count += 1
                 
             
         
