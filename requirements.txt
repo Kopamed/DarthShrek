@@ -5,4 +5,3 @@ async-timeout==3.0.1
 gspread==3.6.0
 google-auth==1.18.0   
 google-auth-oauthlib==0.4.1
-termcolor==1.1.0

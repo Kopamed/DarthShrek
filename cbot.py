@@ -3,8 +3,7 @@ import random
 
 import discord
 
-import gspread, string, termcolor, random, json, time
-from termcolor import colored, cprint
+import gspread, random, json, time
 from oauth2client.service_account import ServiceAccountCredentials
 
 
