@@ -179,7 +179,7 @@ async def on_message(message):
     user_info = load_json("userInfo.json")
     message_history = load_json("messages.json")
     
-    user_info[str(message.author)]["messages"] +=1
+    #user_info[str(message.author)]["messages"] +=1
         
         
     
