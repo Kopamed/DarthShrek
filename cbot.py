@@ -18,9 +18,40 @@ class Database:
         
         self.gc = gspread.service_account(filename="client_secret.json")
         self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        self.gc1 = gspread.service_account(filename="client_secret2.json")
+        self.sh1 = self.gc1.open_by_url(self.url).worksheet(self.worksheet_name)
     
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        
+        #self.gc = gspread.service_account(filename="client_secret.json")
+        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
     
-
     def load_json(self,file_name):
         
         with open(file_name, "r") as write_file:
@@ -42,9 +73,14 @@ class Database:
         
         y = len(self.sh.col_values(1))+1
         for i in range(len(arr)):
-            self.sh.update_cell(y, i+1, arr[i])
-        
-        
+            
+            r = random.randint(1,100)
+            if r%2==0:
+                self.sh.update_cell(y, i+1, arr[i])
+            else:
+                self.sh1.update_cell(y, i+1, arr[i])
+                
+            
         
     
 
