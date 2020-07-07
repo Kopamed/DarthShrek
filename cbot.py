@@ -89,10 +89,10 @@ class Database:
                 self.sh3.update_cell(y, i+1, arr[i])
                 
                 
-        if self.count == self.n:
-            self.count = 0
-        else:
-            self.count += 1
+            if self.count == self.n:
+                self.count = 0
+            else:
+                self.count += 1
                 
             
         
