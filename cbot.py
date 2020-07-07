@@ -16,7 +16,7 @@ class Database:
         self.name = name
         self.worksheet_name = worksheet_name
         self.count = 0
-        self.n=5
+        self.n=7
         
         self.gc = gspread.service_account(filename="client_secret.json")
         self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
@@ -33,11 +33,11 @@ class Database:
         self.gc4 = gspread.service_account(filename="client_secret4.json")
         self.sh4 = self.gc4.open_by_url(self.url).worksheet(self.worksheet_name)
         
-        #self.gc = gspread.service_account(filename="client_secret.json")
-        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        self.gc5 = gspread.service_account(filename="client_secret5.json")
+        self.sh5 = self.gc5.open_by_url(self.url).worksheet(self.worksheet_name)
         
-        #self.gc = gspread.service_account(filename="client_secret.json")
-        #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
+        self.gc6 = gspread.service_account(filename="client_secret6.json")
+        self.sh6 = self.gc6.open_by_url(self.url).worksheet(self.worksheet_name)
         
         #self.gc = gspread.service_account(filename="client_secret.json")
         #self.sh = self.gc.open_by_url(self.url).worksheet(self.worksheet_name)
@@ -90,6 +90,13 @@ class Database:
                 
             elif self.count == 4:
                 self.sh4.update_cell(y, i+1, arr[i])
+                
+            elif self.count == 5:
+                self.sh5.update_cell(y, i+1, arr[i])
+                
+            elif self.count == 6:
+                self.sh6.update_cell(y, i+1, arr[i])
+                
                 
                 
             if self.count == self.n-1:
