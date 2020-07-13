@@ -186,12 +186,12 @@ async def on_member_join(member):
     dump_json("userInfo.json", userInfo)
     userInfo = load_json("userInfo.json")
     
-    await member.add_roles(member.guild.get_role(721253913201999912) , reason="User Trusted", atomic=True)
+    await member.add_roles(member.guild.get_role(722835345871470682) , reason="User Trusted", atomic=True)
     
     
     await member.create_dm()
     await member.dm_channel.send(
-        f'Hi {member.mention}, welcome to The Gaming Sever! *YOU HAVE TO READ THE RULES BEFORE JOINING THE SERVER!*\n*HERE ARE THE RULES: \n-------------\n1. No Spamming or kick\n2. Swearing is allowed but keep it minimal\n3.  No starting conflicts\n4. Don`t be an asshole\n5. No toxicity\n6. No racist or homophobic comments (or ban)\n7. No pornography/hentai or any sexual content\n10. To be allowed to proceed, type {expected} in the server (where MEE6 mentioned you)\n---------------*\nWe hope you have a great time here!\n(If you need help, tag @Helper on the server)'
+        f'Hi {member.mention}, welcome to The Gaming Sever! *YOU HAVE TO READ THE RULES BEFORE JOINING THE SERVER!*\n*HERE ARE THE RULES: \n-------------\n1. No Spamming or kick\n2. Swearing is allowed but keep it minimal\n3.  No starting conflicts\n4. Don`t be an asshole\n5. No toxicity\n6. No racist or homophobic comments (or ban)\n7. No pornography/hentai or any sexual content\n---------------*\nWe hope you have a great time here!\n(If you need help, tag @Helper on the server)'
     )
     channel = member.guild.get_channel(722872295072333864)
     
@@ -358,6 +358,9 @@ async def on_message(message):
                 embed = discord.Embed(title="Error69-420", colour = 0xff0000)
                 embed.add_field(name="Database Error", value=f"An error has occured in our database. Try leaving the server and re-joining it. {Dev.mention}, here is the error: {e}")
                 await message.channel.send(content=None, embed = embed) 
+    
+    
+    
         
         
     if settings["flags"]["botEnabled"]:
