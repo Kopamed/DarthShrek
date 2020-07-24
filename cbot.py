@@ -158,7 +158,7 @@ random_words = dump_file("randomWords.txt", random_words)
 
 
 
-TOKEN = 'NzIwNzIxODU2MTY0MDAzOTAy.XvukOQ.jsrisJXGGmoaDmCl7DUAFfBZS8k'
+TOKEN = 'NzIwNzIxODU2MTY0MDAzOTAy.XuKGiA.Ty-cTxNmL4yb2fuA90JcdXIwo10'
 
 client = discord.Client()
 print("LOading Database...")
