@@ -226,7 +226,8 @@ async def on_message(message):
     if message.content == "":
         return
     if "<@!720721856164003902>" in message.content:
-        await message.channel.send("What did you say about me, you dumb fuck?!?!")
+    replies = ["You mention me 1 more time and I will ban you lmao...", "What did you say about me, you dumb fuck?!?!", f"I ain't no affiliate or any shit with {message.author.mention}, the dude that just mentioned me", "No, you will not be getting a shout out", "Technoblade NEVER DIES!", "Sub to gamerboy80 on youtube! https://www.youtube.com/c/gamerboy80/featured", "Bedrock is a rip off of java edition", "1.9 pvp SWUCKSSSSS", "WHAT SORTA QUESTION IS THAT!?!?!", "NO U", "Mining away... I don't know, WHAT TO MINE ON, mine this anyway.. in this minecraft day... miiiinneee diiiiiiaaaamonds", "Sub to Illegal Eagle on youtube! https://www.youtube.com/channel/UCJorrvryfUYdp2p7_fOWeVQ", "Look at my status... yeah i know.", "You've got no ground, you have got no fans", "You want some? Illl give it to you!", "Waka waka, I diagnose you with gay", "Python3 is the best, better than the rest", "<@638728875085529089> and <@688492326321913992> are the fucking ledgends that mde this server!", "I am going to tell my dad, <@448173528236425216> what you said about me!!!!", "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma - which is living with the results of other people's thinking. Don't let the noise of other's opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition. They somehow already know what you truly want to become. Everything else is secondary. - Steve Jobs", "I am a bot, I have no emotions, I am dumb and can't learn. BUT I AM SILL COOLER THAN YOU LOLOLOLOL"]
+        await message.channel.send(random.choice(replies))
     #count = 0
     ##for i in message.guild.members:
     #    count+=1
