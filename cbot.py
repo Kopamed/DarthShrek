@@ -224,6 +224,8 @@ async def on_message(message):
     
     if message.content == "":
         return
+    if "<@!720721856164003902>" in message.content:
+        await message.channel.send("What did you say about me, you dumb fuck?!?!")
     #count = 0
     ##for i in message.guild.members:
     #    count+=1
