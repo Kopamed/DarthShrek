@@ -9,4 +9,5 @@ It has the following commands:
  - flag
  - 8ball
  - rnum
- - 
+ - Buncha useless shit
+
